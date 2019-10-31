@@ -4,7 +4,7 @@ A Node.js command line application that takes in parameters and returns with a r
 
 ## Installation
 
-Use the node package manager to install foobar.
+Use the node package manager to install dependencies.
 
 ```bash
 npm install 
