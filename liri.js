@@ -17,6 +17,8 @@ function commandRunner(queryType, requestInfo) {
     switch (queryType) {
         case "concert-this":
             console.log("Get Artist Info " + requestInfo);
+            url = "https://rest.bandsintown.com/artists/" + requestInfo + "/events?app_id=codingbootcamp";
+            concertThis(url);
             break;
         case "spotify-this-song":
             console.log("Get Song Info " + requestInfo);
@@ -32,6 +34,41 @@ function commandRunner(queryType, requestInfo) {
     }
 }
 
+function concertThis(url) {
+    axios.get(url)
+  .then(function (response) {
+    // handle success
+    for(var i = 0;i < response.data.length;i++){
+        console.log("Name of venue: " + response.data[i].venue.name);
+        console.log("Venue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
+        console.log("Date of event: " + response.data[i].datetime + "\n\n");
+    }
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+}
+
 function spotifyThisSong(){
     console.log("Search for song info ");
+}
+
+function movieThis() {
+
+}
+
+function doWhatItSays() {
+
+}
+
+function myLogger(loggerInfo) {
+    if(loggerInfo !== undefined){
+        fs.appendFile("log.txt", loggerInfo, function(error) {
+
+        });
+    }
 }
