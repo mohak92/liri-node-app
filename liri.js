@@ -58,6 +58,14 @@ function concertThis(url) {
                 console.log("Name of venue: " + response.data[i].venue.name);
                 console.log("Venue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
                 console.log("Date of event: " + moment(response.data[i].datetime).format("MM/DD/YYYY") + "\n\n");
+
+                loggerInfo = "-----------------------\n"
+                    + "Name of venue: " + response.data[i].venue.name+ "\n"
+                    + "Venue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country + "\n"
+                    + "Date of event: " + moment(response.data[i].datetime).format("MM/DD/YYYY") + "\n"
+                    + "-----------------------";
+
+                myLogger(loggerInfo);
             }
         })
         .catch(function (error) {
@@ -79,7 +87,13 @@ function spotifyThisSong(song) {
         console.log("Album: " + data.tracks.items[0].album.name);
         console.log("Release Date: " + data.tracks.items[0].album.release_date);
 
+        loggerInfo = "-----------------------\n"
+            + "Artist: " + data.tracks.items[0].album.artists[0].name + "\n"
+            + "Album: " + data.tracks.items[0].album.name + "\n"
+            + "Release Date: " + data.tracks.items[0].album.release_date + "\n"
+            + "-----------------------";
 
+        myLogger(loggerInfo);
     });
 }
 
@@ -96,6 +110,20 @@ function movieThis(url) {
             console.log("Actors: " + response.data.Actors);
             console.log("Rotten Tomatoes Rating: " + response.data.tomatoRating);
             console.log("Rotten Tomatoes URL: " + response.data.tomatoURL);
+
+            loggerInfo = "-----------------------\n"
+                + "Title: " + response.data.Title + "\n"
+                + "Release Year: " + response.data.Year + "\n"
+                + "IMdB Rating: " + response.data.imdbRating + "\n"
+                + "Country: " + response.data.Country + "\n"
+                + "Language: " + response.data.Language + "\n"
+                + "Plot: " + response.data.Plot + "\n"
+                + "Actors: " + response.data.Actors + "\n"
+                + "Rotten Tomatoes Rating: " + response.data.tomatoRating + "\n"
+                + "Rotten Tomatoes URL: " + response.data.tomatoURL + "\n"
+                + "-----------------------";
+
+            myLogger(loggerInfo);
         })
         .catch(function (error) {
             // handle error
