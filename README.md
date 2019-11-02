@@ -11,6 +11,7 @@ npm install
 ```
 
 ## Usage
+![](liriApp.gif)
 ### Concert Info:
 ```bash
 node liri.js concert-this <artist/band name here>
