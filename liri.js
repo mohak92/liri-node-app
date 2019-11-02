@@ -2,6 +2,7 @@ require("dotenv").config();
 var keys = require("./keys.js");
 var axios = require("axios");
 var fs = require("fs");
+var moment = require("moment");
 var queryType = process.argv[2];
 var requestInfo = process.argv.splice(3).join(" ").replace(/"/g, "");
 var loggerInfo;
@@ -41,7 +42,7 @@ function concertThis(url) {
     for(var i = 0;i < response.data.length;i++){
         console.log("Name of venue: " + response.data[i].venue.name);
         console.log("Venue Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
-        console.log("Date of event: " + response.data[i].datetime + "\n\n");
+        console.log("Date of event: " + moment(response.data[i].datetime).format("MM/DD/YYYY") + "\n\n");
     }
   })
   .catch(function (error) {
